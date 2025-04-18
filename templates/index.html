@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My blog</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+  <body>
+    <div class="header">
+      <h2>Welcome to my Blog</h2>
+    </div>
+
+    <div class="row">
+      <div class="leftcolumn">
+        {%for post in posts%}
+        <div class="card">
+            <a href="/post/{{post.id}}" style="text-decoration: none; color: black">
+                <h2>{{post.title}}</h2>
+                <h5>{{post.created_at}}</h5>
+                <p>{{post.desc|truncatewords:20}}</p>
+            </a>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="footer" style="background-color: #f2f2f2; padding: 10px; text-align: center; margin-top: 20px;">
+        <p>&copy; 2025 My Blog. All rights reserved.</p>
+        <p>Made with ❤️ using Django</p>
+    </div>
+  
+
+  </body>
+</html>
